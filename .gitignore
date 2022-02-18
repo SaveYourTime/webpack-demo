@@ -1,3 +1,4 @@
 dist/
+build/
 yarn-error.log*
 node_modules/
