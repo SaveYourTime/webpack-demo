@@ -12,6 +12,9 @@
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.3",
     "css-loader": "^6.6.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.5.3",

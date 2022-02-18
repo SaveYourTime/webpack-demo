@@ -24,6 +24,11 @@ module.exports = {
         test: /\.css$/,
         use: [devMode ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader'],
       },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ['babel-loader'],
+      },
     ],
   },
 };
