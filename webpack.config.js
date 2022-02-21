@@ -11,6 +11,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'build.js',
+    clean: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
