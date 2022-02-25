@@ -14,6 +14,7 @@ module.exports = {
     filename: (pathData) => {
       return pathData.chunk.name === 'index' ? 'build.js' : '[name].chunk.js';
     },
+    chunkFilename: '[name].chunk.js',
     clean: true,
   },
   plugins: [
