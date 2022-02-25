@@ -1,10 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const devMode = process.env.NODE_ENV !== 'production';
 
-module.exports = {
+module.exports = (env) => ({
   mode: 'development',
   entry: {
     index: path.resolve(__dirname, 'source', 'index.js'),
@@ -22,6 +23,7 @@ module.exports = {
       template: path.resolve(__dirname, 'source', 'index.html'),
     }),
     ...(devMode ? [] : [new MiniCssExtractPlugin()]),
+    ...(env.analyze ? [new BundleAnalyzerPlugin()] : []),
   ],
   module: {
     rules: [
@@ -39,4 +41,4 @@ module.exports = {
   optimization: {
     splitChunks: { chunks: 'all' },
   },
-};
+});
