@@ -11,7 +11,9 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'build.js',
+    filename: (pathData) => {
+      return pathData.chunk.name === 'index' ? 'build.js' : '[name].chunk.js';
+    },
     clean: true,
   },
   plugins: [
@@ -32,5 +34,8 @@ module.exports = {
         use: ['babel-loader'],
       },
     ],
+  },
+  optimization: {
+    splitChunks: { chunks: 'all' },
   },
 };
